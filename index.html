@@ -969,7 +969,7 @@
           
         </div>
 
-        <button class="letter-button" id="letter-toggle" type="button" aria-expanded="false" aria-controls="letter-stage letter-copy">
+        <button class="letter-button" id="letter-toggle" type="button" aria-label="Abrir la carta" aria-expanded="false" aria-controls="letter-stage letter-copy">
           <span class="letter-stage" id="letter-stage">
             <span class="letter-glow" aria-hidden="true"></span>
             <span class="letter-spark letter-spark--one" aria-hidden="true">✦</span>
@@ -991,7 +991,6 @@
               </span>
             </span>
           </span>
-          <span class="letter-hint" id="letter-hint" aria-live="polite">Toca el sello para leerla</span>
         </button>
 
         <article class="letter-message" id="letter-copy" aria-label="Carta de amor" hidden>
@@ -1025,7 +1024,7 @@
     (function () {
       var toggle = document.getElementById("letter-toggle");
       var stage = document.getElementById("letter-stage");
-      var hint = document.getElementById("letter-hint");
+      
       var message = document.getElementById("letter-copy");
       var close = document.getElementById("letter-close");
       var heart = document.getElementById("letter-heart");
@@ -1033,8 +1032,8 @@
       function setLetterOpen(isOpen) {
         stage.classList.toggle("is-open", isOpen);
         toggle.setAttribute("aria-expanded", String(isOpen));
-        hint.textContent = isOpen ? "" : "Toca el sello para leerla";
-        hint.hidden = isOpen;
+        
+        
         message.hidden = !isOpen;
         close.hidden = !isOpen;
         if (!isOpen) {
